@@ -18,7 +18,8 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController _descricaoController = TextEditingController();
 
   // Lista para armazenar as receitas
-  final List<Map<String, String>> _receitas = [];
+  final List<Map<String, dynamic>> _receitas = [];
+
   // Chave global para validação do formulário
   final _formKey = GlobalKey<FormState>();
 
@@ -59,11 +60,10 @@ class _HomePageState extends State<HomePage> {
 
     if (receitaJson != null) {
       // Se houver receitas armazenadas
-      setState(() {
-        // Decodifica o JSON e adiciona à lista de receitas
-        _receitas
-            .addAll(List<Map<String, String>>.from(json.decode(receitaJson)));
-      });
+
+      _receitas
+          .addAll(List<Map<String, dynamic>>.from(json.decode(receitaJson)));
+      setState(() {});
     }
   }
 
